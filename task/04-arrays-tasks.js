@@ -325,6 +325,33 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
+   const numbers = {
+      0: "zero",
+      1: "one",
+      2: "two",
+      3: "three",
+      4: "four",
+      5: "five",
+      6: "six",
+      7: "seven",
+      8: "eigth",
+      9: "nine"
+   }
+
+   const words = {
+      "zero": 0,
+      "one": 1,
+      "two": 2,
+      "three": 3,
+      "four": 4,
+      "five": 5,
+      "six": 6,
+      "seven": 7,
+      "eigth": 8,
+      "nine": 9
+   }
+
+   // return arr.sort((a, b) => a -b)
    throw new Error('Not implemented');
 }
 
@@ -357,7 +384,7 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-   // return arr.filter((n,i) => n === undefined && n === null && n === false && n === 0 && n.length === 0 && isNaN()===NaN ? i : 0 );
+   // return arr.length === 0 ? 0 : arr.filter((n,i) => n === undefined || n === null || n === false || n === 0 || n === "" || isNaN()===NaN ? i : 0 );
    // return arr.length === 0 ? 0 : arr.filter((el, i) =>{ if(el == false) i })
    throw new Error('Not implemented');
 }

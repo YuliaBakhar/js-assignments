@@ -171,7 +171,7 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    throw new Error('Not implemented');
+    return str.split('').filter((character, index, obj) => obj.indexOf(character) === obj.lastIndexOf(character)).shift();
 }
 
 
@@ -197,7 +197,9 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-    throw new Error('Not implemented');
+    const openBracket = isStartIncluded ? "[" : "(";
+    const closeBracket = isEndIncluded ? "]" : ")";
+    return `${openBracket}${[a, b].sort((a, b) => a - b).join(", ")}${closeBracket}`
 }
 
 
