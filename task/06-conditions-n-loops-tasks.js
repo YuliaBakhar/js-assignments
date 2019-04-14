@@ -155,7 +155,9 @@ function doRectanglesOverlap(rect1, rect2) {
  *   
  */
 function isInsideCircle(circle, point) {
-    throw new Error('Not implemented');
+    const distPoints = (point.x - circle.center.x) * (point.x - circle.center.x) + (point.y - circle.center.y) * (point.y - circle.center.y);
+    const radius = circle.radius * circle.radius;
+    return distPoints < radius ;
 }
 
 
@@ -258,7 +260,11 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
-    throw new Error('Not implemented');
+    return ('' + ccn).split('')
+        .reverse()
+        .map( (el, i) => i % 2 ? +el * 2 : +el )
+        .map( (el) => el > 9 ? (el % 10) + 1 : el )
+        .reduce((pv, cv) => pv += cv ) % 10 === 0;
 }
 
 
@@ -364,7 +370,7 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 function toNaryString(num, n) {
-    throw new Error('Not implemented');
+    return num.toString(n);
 }
 
 

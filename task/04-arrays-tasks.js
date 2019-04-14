@@ -334,7 +334,7 @@ function sortDigitNamesByNumericOrder(arr) {
       5: "five",
       6: "six",
       7: "seven",
-      8: "eigth",
+      8: "eight",
       9: "nine"
    }
 
@@ -347,12 +347,11 @@ function sortDigitNamesByNumericOrder(arr) {
       "five": 5,
       "six": 6,
       "seven": 7,
-      "eigth": 8,
+      "eight": 8,
       "nine": 9
    }
 
-   // return arr.sort((a, b) => a -b)
-   throw new Error('Not implemented');
+   return arr.map(el => words[el]).sort((a, b) => a - b).map(el => numbers[el]);
 }
 
 /** 
@@ -384,9 +383,7 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-   // return arr.length === 0 ? 0 : arr.filter((n,i) => n === undefined || n === null || n === false || n === 0 || n === "" || isNaN()===NaN ? i : 0 );
-   // return arr.length === 0 ? 0 : arr.filter((el, i) =>{ if(el == false) i })
-   throw new Error('Not implemented');
+   return arr.filter(el => !el).length;
 }
 
 /**
@@ -571,7 +568,7 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-    throw new Error('Not implemented');
+   return indexes.reduce((pv, cv) => pv[cv], arr);
 }
 
 
@@ -594,7 +591,9 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    throw new Error('Not implemented');
+   let el;
+   if(arr.length%2 !== 0 )  el = arr[Math.floor(arr.length/2)]
+   return arr.length === 1 ? arr : el ? [...arr.slice(-arr.length / 2), el,...arr.slice(0, arr.length/2)] : [...arr.slice(-arr.length / 2),...arr.slice(0, arr.length/2)]
 }
 
 
